@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(ProjectDir)..\AdditionalFiles\*.*&quot; &quot;$(TargetDir)&quot; /Y&#xD;&#xA;xcopy &quot;$(ProjectDir)..\ReaderAssemblies\*.*&quot; &quot;$(TargetDir)ReaderAssemblies\&quot; /Y /s" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PersonReader.Interface\PersonReader.Interface.csproj" />
+  </ItemGroup>
+
+</Project>
