@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div>
+        <h1>Please make a selection</h1>
+        <ul>
+            <li><strong>@Html.ActionLink("Get People from a Web Service", "Service", "People")</strong></li>
+            <li><strong>@Html.ActionLink("Get People from a CSV Text File", "CSV", "People")</strong></li>
+            <li><strong>@Html.ActionLink("Get People from a SQL Database", "SQL", "People")</strong></li>
+        </ul>
+    </div>

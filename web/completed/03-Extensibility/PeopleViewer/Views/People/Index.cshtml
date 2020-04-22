@@ -1,0 +1,10 @@
+﻿@model IEnumerable<PersonReader.Interface.Person>
+
+<h1>Commanders</h1>
+<h2>@ViewData["Title"]</h2>
+
+@foreach(var person in Model)
+{
+    <span>@person.ToString()</span><br />
+}
+
