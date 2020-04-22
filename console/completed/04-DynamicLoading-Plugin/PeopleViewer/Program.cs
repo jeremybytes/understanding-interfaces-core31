@@ -21,7 +21,7 @@ namespace PeopleViewer
 
             var people = reader.GetPeople();
             foreach (var person in people)
-                WriteLine(person);
+                WriteLine(person.ToConsoleRecord());
 
             WriteLine("=================");
 

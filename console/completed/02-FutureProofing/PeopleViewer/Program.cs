@@ -23,7 +23,7 @@ namespace PeopleViewer
             var reader = new PersonReader();
             people = reader.GetPeople();
             foreach (var person in people)
-                WriteLine(person);
+                WriteLine(person.ToConsoleRecord());
 
             WriteLine("=================");
             WriteLine();
@@ -41,7 +41,7 @@ namespace PeopleViewer
             var reader = new PersonReader();
             people = reader.GetPeople();
             foreach (var person in people)
-                WriteLine(person);
+                WriteLine(person.ToConsoleRecord());
 
             WriteLine("=================");
             WriteLine();
