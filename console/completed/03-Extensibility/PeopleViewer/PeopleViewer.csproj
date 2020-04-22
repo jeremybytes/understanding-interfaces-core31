@@ -13,8 +13,15 @@
     <ProjectReference Include="..\PersonReader.SQL\PersonReader.SQL.csproj" />
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(ProjectDir)..\AdditionalFiles\*.*&quot; &quot;$(TargetDir)&quot; /Y" />
+  <Target Name="CopyDataFiles" AfterTargets="Build">
+    <ItemGroup>
+        <DataFiles Include="$(ProjectDir)..\AdditionalFiles\*.*"/>
+    </ItemGroup>
+
+    <Copy 
+      SourceFiles="@(DataFiles)" 
+      DestinationFolder="$(TargetDir)\" 
+      SkipUnchangedFiles="true" />
   </Target>
 
 </Project>

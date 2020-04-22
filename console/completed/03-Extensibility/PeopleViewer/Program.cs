@@ -10,6 +10,7 @@ namespace PeopleViewer
         static void Main(string[] args)
         {
             while (ShowMenu()) { }
+            WriteLine();
         }
 
         static void UseWebService()

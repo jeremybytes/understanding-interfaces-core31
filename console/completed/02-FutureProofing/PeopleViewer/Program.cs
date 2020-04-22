@@ -11,6 +11,7 @@ namespace PeopleViewer
         static void Main(string[] args)
         {
             while (ShowMenu()) { }
+            WriteLine();
         }
 
         private static void FetchWithConcreteType()
