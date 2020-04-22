@@ -27,6 +27,7 @@ namespace PeopleViewer.Controllers
         {
             var reader = ReaderFactory.GetReader(readerType);
             var people = reader.GetPeople();
+            ViewData["ReaderType"] = reader.GetType().ToString();
             return View("Index", people);
         }
     }
