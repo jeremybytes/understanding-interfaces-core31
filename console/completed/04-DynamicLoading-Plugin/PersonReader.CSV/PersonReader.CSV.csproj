@@ -12,8 +12,16 @@
     </ProjectReference>
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)*.*&quot; &quot;$(ProjectDir)..\ReaderAssemblies\&quot; /Y" />
+  <Target Name="CopyDataReader" AfterTargets="Build">
+    <ItemGroup>
+      <DataReaders Include="$(TargetDir)\*.*"/>
+    </ItemGroup>
+
+    <Copy
+      SourceFiles="@(DataReaders)"
+      DestinationFolder="$(ProjectDir)..\ReaderAssemblies\"
+      SkipUnchangedFiles="true" />
   </Target>
+
 
 </Project>

@@ -27,12 +27,12 @@
 
   <Target Name="CopyDataReaders" AfterTargets="Build">
     <ItemGroup>
-      <DataReaders Include="$(ProjectDir)..\ReaderAssemblies\**\*.*"/>
+      <DataReaders Include="$(ProjectDir)..\ReaderAssemblies\*.*"/>
     </ItemGroup>
 
     <Copy
       SourceFiles="@(DataReaders)"
-      DestinationFolder="$(TargetDir)\ReaderAssemblies\%(RecursiveDir)"
+      DestinationFolder="$(TargetDir)\ReaderAssemblies\"
       SkipUnchangedFiles="true" />
   </Target>
 

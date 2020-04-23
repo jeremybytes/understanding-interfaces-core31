@@ -17,8 +17,39 @@
     </ProjectReference>
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)*.*&quot; &quot;$(ProjectDir)..\ReaderAssemblies\&quot; /Y&#xD;&#xA;xcopy &quot;$(TargetDir)runtimes\win-x64\native\e_sqlite3.dll&quot; &quot;$(ProjectDir)..\ReaderAssemblies\&quot; /Y" />
+  <Target Name="CopyDataReader" AfterTargets="Build">
+    <ItemGroup>
+      <DataReaders Include="$(TargetDir)\*.*"/>
+    </ItemGroup>
+
+    <Copy
+      SourceFiles="@(DataReaders)"
+      DestinationFolder="$(ProjectDir)..\ReaderAssemblies\"
+      SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="CopySQLiteDll_win" AfterTargets="Build"
+          Condition=" '$(OS)' == 'Windows_NT' ">
+    <ItemGroup>
+      <DataReaders Include="$(TargetDir)runtimes\win-x64\native\e_sqlite3.dll"/>
+    </ItemGroup>
+
+    <Copy
+      SourceFiles="@(DataReaders)"
+      DestinationFolder="$(ProjectDir)..\ReaderAssemblies\"
+      SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="CopySQLiteDll_macos" AfterTargets="Build"
+          Condition=" '$(OS)' != 'Windows_NT' ">
+    <ItemGroup>
+      <DataReaders Include="$(TargetDir)runtimes\osx-x64\native\e_sqlite3.dll"/>
+    </ItemGroup>
+
+    <Copy
+      SourceFiles="@(DataReaders)"
+      DestinationFolder="$(ProjectDir)..\ReaderAssemblies\"
+      SkipUnchangedFiles="true" />
   </Target>
 
 </Project>
