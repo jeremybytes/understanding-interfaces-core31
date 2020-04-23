@@ -11,10 +11,8 @@ We all want code that is easy to maintain, extend, and test. C# interfaces are h
 Contains samples that use a WPF desktop UI (Windows only).
 * *console*  
 Contains samples that use console applications for the UI (Windows, macOS, Linux)  
-_Note: Project 04-DynamicLoading-Plugin works with Windows and macOS; Linux is still under development._
 * *web*  
 Contains samples that use a web UI (Windows, macOS, Linux)  
-_Note: Project 04-DynamicLoading-Plugin works with Windows and macOS; Linux is still under development._
 
 
 **Additional Resources**
