@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PersonReader.CSV\PersonReader.CSV.csproj" />
+    <ProjectReference Include="..\PersonReader.Interface\PersonReader.Interface.csproj" />
+    <ProjectReference Include="..\PersonReader.Service\PersonReader.Service.csproj" />
+    <ProjectReference Include="..\PersonReader.SQL\PersonReader.SQL.csproj" />
+  </ItemGroup>
+
+  <Target Name="CopyDataFiles" AfterTargets="Build">
+    <ItemGroup>
+        <DataFiles Include="$(ProjectDir)..\AdditionalFiles\*.*"/>
+    </ItemGroup>
+
+    <Copy 
+      SourceFiles="@(DataFiles)" 
+      DestinationFolder="$(TargetDir)\" 
+      SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>
