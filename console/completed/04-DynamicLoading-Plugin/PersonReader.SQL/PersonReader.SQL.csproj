@@ -41,7 +41,7 @@
   </Target>
 
   <Target Name="CopySQLiteDll_macos" AfterTargets="Build"
-          Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">
+          Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))'">
     <ItemGroup>
       <DataReaders Include="$(TargetDir)runtimes\osx-x64\native\libe_sqlite3.dylib"/>
     </ItemGroup>
@@ -53,7 +53,7 @@
   </Target>
 
   <Target Name="CopySQLiteDll_linux" AfterTargets="Build"
-          Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">
+          Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))'">
     <ItemGroup>
       <DataReaders Include="$(TargetDir)runtimes\linux-x64\native\libe_sqlite3.so"/>
     </ItemGroup>
